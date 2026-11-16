@@ -272,9 +272,6 @@ No MFA, no email verification or self-service password reset, rate limits are pe
 2. Use fictional data only; never commit real personal data.
 3. Run the backend and frontend tests before opening a pull request.
 
-## Team
-
-Built at the School of Computer Engineering, KIIT, Bhubaneswar. Add the team and roles here.
 
 <div align="center">
 
