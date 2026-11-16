@@ -14,10 +14,6 @@ An enterprise style PII detection and redaction platform for **PDFs, DOCX files 
 ![PyTorch](https://img.shields.io/badge/PyTorch-CPU-EE4C2C?logo=pytorch&logoColor=white)
 ![Hugging Face](https://img.shields.io/badge/Transformers-HF-FFD21E?logo=huggingface&logoColor=black)
 
-![Last commit](https://img.shields.io/github/last-commit/YOUR_USERNAME/Blur)
-![Stars](https://img.shields.io/github/stars/YOUR_USERNAME/Blur?style=social)
-![Issues](https://img.shields.io/github/issues/YOUR_USERNAME/Blur)
-![Repo size](https://img.shields.io/github/repo-size/YOUR_USERNAME/Blur)
 
 [Features](#-features) · [Architecture](#-architecture) · [Quick start](#-quick-start) · [ML engine](#-ml-engine) · [Roles](#-role-based-access-control) · [Testing](#-testing) · [Docs](#-documentation)
 
