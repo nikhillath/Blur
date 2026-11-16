@@ -27,3 +27,5 @@ ml/artifacts/*
 storage-e2e/
 frontend/test-results/
 frontend/playwright-report/
+CHAT_LOG.txt
+SECURITY_GAPS.txt
