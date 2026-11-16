@@ -1,0 +1,33 @@
+# Fine-tuning configuration (CPU-friendly). Every value that affects results lives here.
+run_name: pii-minilm-v1
+seed: 14                     # different seed than the quick run -> a different document sample
+threads: 10                  # i7-1255U: 2 performance + 8 efficiency cores
+max_length: 128              # tokens per training window
+stride: 32                   # overlap for documents longer than max_length
+
+# Encoder: Microsoft Multilingual-MiniLM-L12-H384 (MIT; 12 layers, hidden 384, ~21M encoder params). It is about
+# 4x cheaper per step than XLM-R base, which makes CPU-only training practical. It shares the XLM-R sentencepiece
+# vocabulary, so the tokenizer is loaded from xlm-roberta-base. This run warm-starts from the quick run (see base_model).
+# Continues from the quick run's best checkpoint (warm start) on a fresh sample of documents.
+base_model: ../ml/artifacts/pii-minilm-quick/best
+tokenizer: xlm-roberta-base
+local_files_only: true
+
+eval_min_score: 0.4          # decoding threshold used for validation F1
+
+train:
+  max_examples: 28000        # documents sampled from the 230k-row Maskara train split (stratified by domain/difficulty)
+  small_source_oversample: 3 # IndiaPII train docs are few but carry IFSC / bank account / voter id / passport
+  epochs: 1
+  freeze_embeddings: true    # see train.py; keeps the encoder trainable, avoids updating 192M embedding weights
+  batch_size: 16
+  lr: 1.0e-4                 # small encoders need a larger step than the 5e-5 typical for base-size models
+  head_lr: 3.0e-4            # newly initialised classification head
+  weight_decay: 0.01
+  warmup_ratio: 0.1
+  grad_clip: 1.0
+  log_every: 20
+  eval_every_steps: 250
+  eval_max_examples: 800     # validation documents scored at each evaluation
+  patience: 3                # evaluations without improvement before stopping
+  max_minutes: 30           # wall-clock budget; training stops and keeps the best checkpoint

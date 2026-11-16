@@ -1,0 +1,10 @@
+CUSTOMER INFORMATION RECORD
+Customer Name: Riya Sharma
+Email: riya.sharma@example.com
+Phone: +91 98765 43210
+This information is fictional and intended solely for local demonstration.
+Customer ID: CUST-DEMO-001
+Date of Birth: 15 March 2001
+Address: 24 Lake View Road, Bhubaneswar, Odisha
+PAN-like test value: ABCDE1234F
+Aadhaar-like test value: 4521 7834 9123
